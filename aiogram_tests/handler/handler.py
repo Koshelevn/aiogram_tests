@@ -15,18 +15,18 @@ class TelegramEventObserverHandler(RequestHandler):
         self,
         callback: Callable,
         *filters: Filter,
-        state: State | str | None = None,
-        state_data: dict[str, Any] | None = None,
-        dp_middlewares: Iterable | None = None,
-        exclude_observer_methods: Iterable | None = None,
+        state: State = None,
+        state_data: dict[str, Any] = None,
+        dp_middlewares: Iterable = None,
+        exclude_observer_methods: Iterable = None,
         **kwargs,
     ):
         super().__init__(dp_middlewares, exclude_observer_methods, **kwargs)
 
         self._callback = callback
         self._filters: List = list(filters)
-        self._state: State | str | None = state
-        self._state_data: dict[str, Any] | None = state_data
+        self._state: State = state
+        self._state_data: dict[str, Any] = state_data
 
         if self._state_data is None:
             self._state_data = {}
@@ -72,10 +72,10 @@ class MessageHandler(TelegramEventObserverHandler):
         self,
         callback: Callable,
         *filters: Filter,
-        state: State | str | None = None,
-        state_data: dict[str, Any] | None = None,
-        dp_middlewares: Iterable | None = None,
-        exclude_observer_methods: Iterable | None = None,
+        state: State = None,
+        state_data: dict[str, Any] = None,
+        dp_middlewares: Iterable = None,
+        exclude_observer_methods: Iterable = None,
         **kwargs,
     ):
         super().__init__(
@@ -102,10 +102,10 @@ class CallbackQueryHandler(TelegramEventObserverHandler):
         self,
         callback: Callable,
         *filters: Filter,
-        state: State | str | None = None,
-        state_data: dict[str, Any] | None = None,
-        dp_middlewares: Iterable | None = None,
-        exclude_observer_methods: Iterable | None = None,
+        state: State = None,
+        state_data: dict[str, Any] = None,
+        dp_middlewares: Iterable = None,
+        exclude_observer_methods: Iterable = None,
         **kwargs,
     ):
         super().__init__(
@@ -134,10 +134,10 @@ class MyChatMemberHandler(TelegramEventObserverHandler):
         self,
         callback: Callable,
         *filters: Filter,
-        state: State | str | None = None,
-        state_data: dict[str, Any] | None = None,
-        dp_middlewares: Iterable | None = None,
-        exclude_observer_methods: Iterable | None = None,
+        state: State = None,
+        state_data: dict[str, Any] = None,
+        dp_middlewares: Iterable = None,
+        exclude_observer_methods: Iterable = None,
         **kwargs,
     ):
         super().__init__(

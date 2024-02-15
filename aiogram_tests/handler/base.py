@@ -15,9 +15,9 @@ from aiogram_tests.mocked_bot import MockedBot
 class RequestHandler:
     def __init__(
         self,
-        dp_middlewares: Iterable[BaseMiddleware] | None = None,
-        exclude_observer_methods: Iterable[str] | None = None,
-        dp: Dispatcher | None = None,
+        dp_middlewares: Iterable[BaseMiddleware] = None,
+        exclude_observer_methods: Iterable[str] = None,
+        dp: Dispatcher = None,
         **kwargs: Any,
     ):
         self.bot = MockedBot()
@@ -64,11 +64,11 @@ class RequestHandler:
         self,
         method: TelegramMethod[TelegramType],
         ok: bool,
-        result: TelegramType | None = None,
-        description: str | None = None,
+        result: TelegramType = None,
+        description: str = None,
         error_code: int = 200,
-        migrate_to_chat_id: int | None = None,
-        retry_after: int | None = None,
+        migrate_to_chat_id: int = None,
+        retry_after: int  = None,
     ) -> Response[TelegramType]:
         response = self.bot.add_result_for(
             method=method,

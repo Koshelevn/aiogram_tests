@@ -66,11 +66,11 @@ class MockedBot:
         self,
         method: TelegramMethod[TelegramType],
         ok: bool,
-        result: TelegramType | None = None,
-        description: str | None = None,
+        result: TelegramType = None,
+        description: str = None,
         error_code: int = 200,
-        migrate_to_chat_id: int | None = None,
-        retry_after: int | None = None,
+        migrate_to_chat_id: int = None,
+        retry_after: int  = None,
     ) -> Response[TelegramType]:
         response = self._handler.add_result_for(
             method=method,
