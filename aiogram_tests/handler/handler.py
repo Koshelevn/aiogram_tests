@@ -93,7 +93,7 @@ class MessageHandler(TelegramEventObserverHandler):
 
     async def feed_update(self, message: types.Message, *args, **kwargs) -> None:
         await self.dp.feed_update(
-            self.bot, types.Update(update_id=12345678, message=message)
+            self.bot, types.Update(update_id=12345678, message=message), *args, **kwargs
         )
 
 
@@ -125,7 +125,7 @@ class CallbackQueryHandler(TelegramEventObserverHandler):
         self, callback_query: types.CallbackQuery, *args, **kwargs
     ) -> None:
         await self.dp.feed_update(
-            self.bot, types.Update(update_id=12345678, callback_query=callback_query)
+            self.bot, types.Update(update_id=12345678, callback_query=callback_query, *args, **kwargs)
         )
 
 
